@@ -1,6 +1,9 @@
 import requests
+from bs4 import BeautifulSoup
 import os
 
+
+# ✅ Telegram function
 def send_telegram(message):
     token = os.getenv("BOT_TOKEN")
     chat_id = os.getenv("CHAT_ID")
@@ -14,51 +17,69 @@ def send_telegram(message):
 
     requests.post(url, data=data)
 
-from bs4 import BeautifulSoup
-import os
 
-URL = "https://www.amazon.in/Lenovo-Monitor-FreeSync-Speakers-1xUSB-C/dp/B0DKFDM413/ref=pd_ci_mcx_mh_mcx_views_0_image?pd_rd_w=v7J7E&content-id=amzn1.sym.41279fa1-dd23-4c70-9745-af6d0ebf3670%3Aamzn1.symc.30e3dbb4-8dd8-4bad-b7a1-a45bcdbc49b8&pf_rd_p=41279fa1-dd23-4c70-9745-af6d0ebf3670&pf_rd_r=KHGWW3089BGQQ93HBM15&pd_rd_wg=VJ07t&pd_rd_r=c013706e-8b28-4dac-bfda-3ffab35cb62c&pd_rd_i=B0DKFDM413&th=1"
+# ✅ Add your products here
+PRODUCTS = [
+    {
+        "name": "Monitor",
+        "url": "https://www.amazon.in/dp/B0DKFDM413"
+    },
+    {
+        "name": "Another Product",
+        "url": "https://amzn.in/d/0d5XmS8m"
+    }
+]
+
 
 headers = {
-	"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
 }
 
-def get_price():
-	response = requests.get(URL, headers=headers)
-	soup = BeautifulSoup(response.content, "html.parser")
-	
-	price = soup.find("span", {"class": "a-price-whole"})
-	
-	if price:
-		clean_price = price.text.replace(",", "").replace(".", "")
-		return int(clean_price)
-	return None
+
+# ✅ Get price function
+def get_price(url):
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.content, "html.parser")
+
+    price = soup.find("span", {"class": "a-price-whole"})
+
+    if price:
+        clean_price = price.text.replace(",", "").replace(".", "")
+        return int(clean_price)
+    return None
 
 
+# ✅ Main logic
 def main():
-	current_price = get_price()
+    for product in PRODUCTS:
+        name = product["name"]
+        url = product["url"]
 
-	if current_price is None:
-		print ("Couldn't fetch price")
-		return
+        current_price = get_price(url)
 
-	# Check if previous price file exists
-	if os.path.exists("price.txt"):
-		with open("price.txt", "r") as f:
-			old_price = int(f.read())
+        if current_price is None:
+            print(f"Couldn't fetch price for {name}")
+            continue
 
-		if True:
-			msg = f"🔥  Price dropped!\nOld: ₹{old_price}\nNew: ₹{current_price}\n{URL}"
-			print(msg)
+        filename = f"{name}.txt"
 
-	else:
-		print("First time tracking. Saving price...")
+        if os.path.exists(filename):
+            with open(filename, "r") as f:
+                old_price = int(f.read())
 
-	# Save current price
-	with open("price.txt", "w") as f:
-		f.write(str(current_price))
+            if old_price - current_price >= 500:
+                msg = f"🔥 {name} price dropped!\nOld: ₹{old_price}\nNew: ₹{current_price}\n{url}"
+                print(msg)
+                send_telegram(msg)
 
-	print("Current price:", current_price)
+        else:
+            print(f"First time tracking {name}")
+
+        with open(filename, "w") as f:
+            f.write(str(current_price))
+
+        print(f"{name} current price: {current_price}")
+
 
 if __name__ == "__main__":
-	main()
+    main()
