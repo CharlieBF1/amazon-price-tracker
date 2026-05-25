@@ -30,7 +30,7 @@ PRODUCTS = [
     },
     {
         "name": "Another Product",
-        "url": "https://www.amazon.in/Apple-TV-4K-Wi%E2%80%91Fi-Ethernet-128GB-Storage-Generation/dp/B0BJMJ4ZQP/ref=sr_1_1?crid=169LEBO8RF8LP&dib=eyJ2IjoiMSJ9.3wMyupfTXiGi9Efgd91SE7T1Ocm97_t3isKhZfsp0jW5JvHYcotvsGBuKQe8gmdDUbXMRr9aeK9LiQWYDPGkATZHhrXy5u1zQy5bIcqgiXPH8Vy-qn2ETUniZuxxF9NqxXiy9sZ4yajyF0ZTw0TkVAkKiZz76t_11jiIzsT0u1VxZQB-6qHkPMQB61vlAn9WzWNqnp2widz24NlWtjDwEmWh3vl47Je251VOZQnFrW631Mw4h6R2i6_fKtCDXEGS-NZqMQqGd-wZPS2Tuw7wyQcyJL_6r8OqbYBthki7g4I.BYG_fIwqPnegQawMoBoX2dz7ATh01eIUTHXhTuxTHvI&dib_tag=se&keywords=appletv+4k+wifi&qid=1779719413&s=computers&sprefix=appletv+4k+wif%2Ccomputers%2C367&sr=1-1"
+        "url": "https://amzn.in/d/02xKeIMD"
     }
 ]
 
