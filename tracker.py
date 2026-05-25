@@ -8,6 +8,7 @@ def send_telegram(message):
     token = os.getenv("BOT_TOKEN")
     chat_id = os.getenv("CHAT_ID")
 
+     # Debug (optional)
     print("TOKEN:", token)
     print("CHAT_ID:", chat_id)
     
@@ -35,24 +36,38 @@ PRODUCTS = [
 
 
 headers = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+    "Accept-Language": "en-US,en;q=0.9"
 }
 
 
 # ✅ Get price function
 def get_price(url):
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.content, "html.parser")
+    try:
+        response = requests.get(url, headers=headers)
 
-    price = soup.find("span", {"class": "a-price-whole"})
+        if response.status_code != 200:
+            print(f"Blocked or failed request: {response.status_code}")
+            return None
 
-    if price:
-        clean_price = price.text.replace(",", "").replace(".", "")
-        return int(clean_price)
-    return None
+        soup = BeautifulSoup(response.content, "html.parser")
 
+        price = soup.find("span", {"class": "a-price-whole"})
+
+        if price:
+            clean_price = price.text.replace(",", "").replace(".", "")
+            return int(clean_price)
+
+        print("Price not found in HTML")
+        return None
+
+    except Exception as e:
+        print("Error fetching price:", e)
+        return None
+        
 
 # ✅ Main logic
+
 def main():
     for product in PRODUCTS:
         name = product["name"]
@@ -62,6 +77,9 @@ def main():
 
         if current_price is None:
             print(f"Couldn't fetch price for {name}")
+
+            # ✅ TEST MESSAGE (so you know Telegram works)
+            send_telegram(f"⚠️ Failed to fetch price for {name}")
             continue
 
         filename = f"{name}.txt"
@@ -70,8 +88,10 @@ def main():
             with open(filename, "r") as f:
                 old_price = int(f.read())
 
+            # ✅ For testing (change back later)
             if True:
                 msg = f"🔥 {name} test alert\nPrice: ₹{current_price}\n{url}"
+                print(msg)
                 send_telegram(msg)
 
         else:
@@ -85,4 +105,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-send_telegram("Test alert working")
