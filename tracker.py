@@ -26,7 +26,7 @@ def send_telegram(message):
 PRODUCTS = [
     {
         "name": "Monitor",
-        "url": "https://www.amazon.in/dp/B0DKFDM413"
+        "url": "https://amzn.in/d/0jfflmGA"
     },
     {
         "name": "Another Product",
