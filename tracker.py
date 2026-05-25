@@ -68,8 +68,8 @@ def main():
                 old_price = int(f.read())
 
             if True:
-    msg = f"🔥 {name} test alert\nPrice: ₹{current_price}\n{url}"
-    send_telegram(msg)
+                msg = f"🔥 {name} test alert\nPrice: ₹{current_price}\n{url}"
+                send_telegram(msg)
 
         else:
             print(f"First time tracking {name}")
