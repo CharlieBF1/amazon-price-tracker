@@ -26,11 +26,11 @@ def send_telegram(message):
 PRODUCTS = [
     {
         "name": "Monitor",
-        "url": "https://amzn.in/d/0jfflmGA"
+        "url": "https://www.amazon.in/Lenovo-Monitor-FreeSync-Speakers-1xUSB-C/dp/B0DKFDM413/ref=sr_1_2?crid=2UBUMG3C43MIN&dib=eyJ2IjoiMSJ9.9X7DWuVfXeHT5PHgq_UkVvBc-MbnQb6IAaXdZkM0sQ4-J4u92lXVwGk1EvnwSQUMNdCnNLRxU6iiVY9er7CHbrydxnIHiDJ5XH9hZYBEQ4n6qmxShlk9SlrZGCp_8xx8PAIJ2ibmP9BeTup-JyyZtvVgCAOTC-PLqDosJKTcQQMoQi4LiRMOlQiUxE7HYH0VOJgm8RY8b6ysgYTk8RcrDB095az6dzn4B9LrQ8siMxkUsXD1zv4H-wZgwo3pSfqEU-iupml-NWgqTiAiazrkt5GrAR6Lnu_7xQ-RhbEkN4I.dZe2Y_Wzvz0LKPzZIB4MwyXTjF6ZdbZdD2Fh-xZN5DU&dib_tag=se&keywords=L27h-4A&qid=1779719373&s=computers&sprefix=l27h-4a%2Ccomputers%2C411&sr=1-2&th=1"
     },
     {
         "name": "Another Product",
-        "url": "https://amzn.in/d/0d5XmS8m"
+        "url": "https://www.amazon.in/Apple-TV-4K-Wi%E2%80%91Fi-Ethernet-128GB-Storage-Generation/dp/B0BJMJ4ZQP/ref=sr_1_1?crid=169LEBO8RF8LP&dib=eyJ2IjoiMSJ9.3wMyupfTXiGi9Efgd91SE7T1Ocm97_t3isKhZfsp0jW5JvHYcotvsGBuKQe8gmdDUbXMRr9aeK9LiQWYDPGkATZHhrXy5u1zQy5bIcqgiXPH8Vy-qn2ETUniZuxxF9NqxXiy9sZ4yajyF0ZTw0TkVAkKiZz76t_11jiIzsT0u1VxZQB-6qHkPMQB61vlAn9WzWNqnp2widz24NlWtjDwEmWh3vl47Je251VOZQnFrW631Mw4h6R2i6_fKtCDXEGS-NZqMQqGd-wZPS2Tuw7wyQcyJL_6r8OqbYBthki7g4I.BYG_fIwqPnegQawMoBoX2dz7ATh01eIUTHXhTuxTHvI&dib_tag=se&keywords=appletv+4k+wifi&qid=1779719413&s=computers&sprefix=appletv+4k+wif%2Ccomputers%2C367&sr=1-1"
     }
 ]
 
