@@ -83,3 +83,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+send_telegram(f"Test alert for {name}")
