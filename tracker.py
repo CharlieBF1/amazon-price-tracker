@@ -4,7 +4,7 @@ def send_telegram(message):
 	token = os.getenv("BOT_TOKEN")
 	chat_id = os.getenv("CHAT_ID")
 
-	url = f"https://api.telegram.org/bot8888509378:AAGJvyLuBQtEZvwABvYa2Oz9Eu5BvtH3NAc/sendMessage"
+	url = f"https://api.telegram.org/bot(os.getenv("BOT_TOKEN"))/sendMessage"
 
 	data = {
 		"chat_id": chat_id,
