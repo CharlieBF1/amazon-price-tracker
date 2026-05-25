@@ -5,12 +5,12 @@ import os
 
 # ✅ Telegram function
 def send_telegram(message):
-    print("TOKEN:", token)
-    print("CHAT_ID:", chat_id)
-    
     token = os.getenv("BOT_TOKEN")
     chat_id = os.getenv("CHAT_ID")
 
+    print("TOKEN:", token)
+    print("CHAT_ID:", chat_id)
+    
     url = f"https://api.telegram.org/bot{token}/sendMessage"
 
     data = {
