@@ -11,6 +11,11 @@ def send_telegram(message):
      # Debug (optional)
     print("TOKEN:", token)
     print("CHAT_ID:", chat_id)
+
+    
+    if not token or not chat_id:
+        print("Missing Telegram credentials")
+        return
     
     url = f"https://api.telegram.org/bot{token}/sendMessage"
 
