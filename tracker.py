@@ -5,6 +5,9 @@ import os
 
 # ✅ Telegram function
 def send_telegram(message):
+    print("TOKEN:", token)
+    print("CHAT_ID:", chat_id)
+    
     token = os.getenv("BOT_TOKEN")
     chat_id = os.getenv("CHAT_ID")
 
