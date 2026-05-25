@@ -47,7 +47,7 @@ def main():
 		with open("price.txt", "r") as f:
 			old_price = int(f.read())
 
-		if old_price - current_price >= 500:
+		if True:
 			msg = f"🔥  Price dropped!\nOld: ₹{old_price}\nNew: ₹{current_price}\n{URL}"
 			print(msg)
 
