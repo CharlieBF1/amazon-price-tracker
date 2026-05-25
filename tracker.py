@@ -67,7 +67,7 @@ def main():
             with open(filename, "r") as f:
                 old_price = int(f.read())
 
-            if old_price - current_price >= 500:
+            if True:
                 msg = f"🔥 {name} price dropped!\nOld: ₹{old_price}\nNew: ₹{current_price}\n{url}"
                 print(msg)
                 send_telegram(msg)
