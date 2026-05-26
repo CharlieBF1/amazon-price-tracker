@@ -49,7 +49,10 @@ headers = {
 # ✅ Get price function
 def get_price(url):
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=10)
+
+        print(response.status_code)
+        print(response.text[:500])
 
         if response.status_code != 200:
             print(f"Blocked or failed request: {response.status_code}")
