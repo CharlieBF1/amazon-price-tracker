@@ -56,11 +56,17 @@ def get_price(url):
 
         soup = BeautifulSoup(response.content, "html.parser")
 
-        price = soup.find("span", {"class": "a-price-whole"})
+        price = soup.select_one(".a-price .a-offscreen")
 
         if price:
-            clean_price = price.text.replace(",", "").replace(".", "")
-            return int(clean_price)
+            clean_price = (
+                price.text
+                .replace("₹", "")
+                .replace(",", "")
+                .strip()
+        )
+
+        return int(float(clean_price))
 
         print("Price not found in HTML")
         return None
