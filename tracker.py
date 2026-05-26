@@ -51,12 +51,8 @@ def get_price(url):
     try:
         response = requests.get(url, headers=headers, timeout=10)
 
-        print(response.status_code)
-        print(response.text[:500])
-
-        if response.status_code != 200:
-            print(f"Blocked or failed request: {response.status_code}")
-            return None
+        print("STATUS:", response.status_code)
+        print(response.text[:1000])
 
         soup = BeautifulSoup(response.content, "html.parser")
 
@@ -71,8 +67,7 @@ def get_price(url):
 
     except Exception as e:
         print("Error fetching price:", e)
-        return None
-        
+        return None        
 
 # ✅ Main logic
 
