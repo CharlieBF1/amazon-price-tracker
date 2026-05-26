@@ -35,7 +35,7 @@ PRODUCTS = [
     },
     {
         "name": "Another Product",
-        "url": "https://amzn.in/d/02xKeIMD"
+        "url": "https://www.amazon.in/dp/B0BJMJ4ZQP?ref=cm_sw_r_cp_ud_dp_0GZRHESGTDZ5XSCAYK43&ref_=cm_sw_r_cp_ud_dp_0GZRHESGTDZ5XSCAYK43&social_share=cm_sw_r_cp_ud_dp_0GZRHESGTDZ5XSCAYK43&th=1"
     }
 ]
 
